@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { format } from "date-fns";
-import { Pencil, Trash2, Check, X } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -68,8 +68,8 @@ export function TaskList({ filterFn }: TaskListProps) {
   return (
     <div className="space-y-4">
       {filteredTasks.map((task) => (
-        <Card key={task.id} className="relative">
-          <CardContent className="pt-6">
+        <Card key={task.id}>
+          <CardContent className="p-4">
             {editingId === task.id ? (
               <div className="space-y-4">
                 <TaskForm
@@ -89,14 +89,14 @@ export function TaskList({ filterFn }: TaskListProps) {
                     });
                   }}
                 />
-                <div className="flex-1">
-                  <h3 className={`font-semibold ${
+                <div className="flex-1 min-w-0">
+                  <h3 className={`font-semibold break-words ${
                     task.status === "completed" ? "line-through text-muted-foreground" : ""
                   }`}>
                     {task.title}
                   </h3>
                   {task.description && (
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-sm text-muted-foreground mt-1 break-words">
                       {task.description}
                     </p>
                   )}
@@ -109,7 +109,7 @@ export function TaskList({ filterFn }: TaskListProps) {
                     )}
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-shrink-0">
                   <Button
                     variant="ghost"
                     size="icon"

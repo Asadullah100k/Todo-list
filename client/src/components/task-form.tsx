@@ -65,7 +65,11 @@ export function TaskForm({ task, onSuccess, onCancel }: TaskFormProps) {
             <FormItem>
               <FormLabel>Title</FormLabel>
               <FormControl>
-                <Input placeholder="Enter task title" {...field} />
+                <Input 
+                  placeholder="Enter task title"
+                  className="w-full max-w-2xl" 
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -80,6 +84,8 @@ export function TaskForm({ task, onSuccess, onCancel }: TaskFormProps) {
               <FormControl>
                 <Textarea
                   placeholder="Enter task description (optional)"
+                  className="w-full max-w-2xl resize-none"
+                  rows={3}
                   {...field}
                 />
               </FormControl>
